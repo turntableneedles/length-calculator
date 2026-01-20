@@ -1,0 +1,30 @@
+
+<div id="converter-box" style="max-width: 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; font-family: Arial, sans-serif; background: #f9f9f9;">
+    <h3 style="margin-top: 0; font-size: 18px; color: #333;">Length Converter</h3>
+    
+    <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 12px; color: #666;">Millimeters (mm)</label>
+        <input type="number" id="mmInput" placeholder="Enter mm" oninput="convertMM()" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+    </div>
+
+    <div>
+        <label style="display: block; font-size: 12px; color: #666;">Inches (in)</label>
+        <input type="number" id="inInput" placeholder="Result" readonly="" style="width: 100%; padding: 8px; border: 1px solid #eee; border-radius: 4px; background: #fff; box-sizing: border-box; font-weight: bold;">
+    </div>
+</div>
+
+<script>
+    function convertMM() {
+        const mm = document.getElementById('mmInput').value;
+        const inchField = document.getElementById('inInput');
+        
+        if (mm) {
+            // Formula: mm / 25.4
+            const result = mm / 25.4;
+            // Round to 4 decimal places for accuracy
+            inchField.value = parseFloat(result.toFixed(4));
+        } else {
+            inchField.value = '';
+        }
+    }
+</script>
